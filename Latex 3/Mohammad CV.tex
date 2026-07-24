@@ -1,0 +1,246 @@
+%-------------------------------------
+% Resume in LaTeX (XeLaTeX)
+% Author: HF Yuan (template)
+% Edited for: Mohammad Rahmanitalab
+%------------------------------------
+
+\documentclass[a4paper,10pt]{article}
+
+\usepackage{myresume}  % Style package
+\usepackage[hidelinks]{hyperref}
+\usepackage{fontawesome5}
+\usepackage{enumitem}  % for fine control of lists (already used in style)
+
+% --------------------  START  --------------------
+\begin{document}
+	
+	% -------------------- HEADER --------------------
+	\begin{center}
+		{\Calluna \fontsize{22pt}{22pt}\selectfont \textsc{Mohammad Rahmanitalab}}\\[2pt]
+		{\Calluna \small B.Sc. Mechanical Engineering (expected 2026), Sharif University of Technology}\\[4pt]
+		{\Calluna \small Minor Computer Science (expected 2026), Sharif University of Technology}\\[4pt]
+		{\small
+			\href{tel:(+98)939-0053-773}{\faPhone\enspace (+98) 939-0053-773} \enspace\textbar\enspace
+			\href{mailto:mohammad.rahmanitalab@sharif.edu}{\faEnvelope\enspace mohammad.rahmanitalab@sharif.edu} \enspace\textbar\enspace
+			\href{https://www.linkedin.com/in/mohammad-rahmanitalab-336a95250}{\faLinkedinIn\enspace Mohammad-Rahmanitalab} \enspace\textbar\enspace
+			\faMapMarker\enspace Tehran, Iran
+		}
+		\noindent\rule{\textwidth}{0.4pt}
+	\end{center}
+	\vspace{1pt}
+	
+	
+	% -------------------- EDUCATION --------------------
+	\sectionBlock{
+		\section{Education}
+	}{
+		\eduHeadingFour
+		{B.Sc. Major in Mechanical Engineering, \href{https://www.sharif.edu}{SUT}}{Tehran, Iran}
+		{2021 -- 2026}{Advisor: Prof.\ Saeed Behzadipour}
+		\itemListStart
+		\myItem{GPA: 3.95/4.00 \ (18.93/20) — Ranked \textbf{12\textsuperscript{th} out of 116} students in the department.}
+		\myItem{Qualified for \textbf{direct M.Sc.\ admission} based on outstanding academic excellence.}
+		\itemListEnd
+		
+		\eduHeadingThree
+		{B.Sc. Minor in Computer Science, \href{https://www.sharif.edu}{SUT}}{Tehran, Iran}
+		{2022 -- 2026}
+		\itemListStart
+		\myItem{GPA: 4.00/4.00 \ (18.93/20)}
+
+		\itemListEnd
+		
+		\eduHeadingThree
+		{Diploma in Mathematics and Physics}{Tehran, Iran}
+		{2021}
+		\itemListStart
+		\myItem{GPA: 4.00/4.00 \ (19.88/20)}
+		\itemListEnd
+	}
+	
+	% -------------------- RESEARCH INTERESTS --------------------
+	\sectionBlock{
+		\section{Research Interests}
+	}{
+		\awardListStart
+		\justifying
+		\item \emph{Medical Robotics:} Surgical robots, exoskeletons, rehabilitation robotics, human--robot interaction
+		\item \emph{Motion Analysis:} Biomechanics, IMU-based sensing, clinical movement classification
+		\item \emph{Machine Learning:} Deep learning, reinforcement learning, ML for healthcare applications
+		\item \emph{Control Systems:} Haptic feedback, teleoperation, master--slave robotic control
+		\awardListEnd
+	}
+	
+	% -------------------- UNDERGRADUATE RESEARCH --------------------
+	\sectionBlock{
+		\section{Undergraduate Research}
+	}{
+		\internHeading
+		{Motion Analysis for DMD Rehab}{Sharif University of Technology}{2024 -- Present}
+		\itemListStart
+		\myItem{Conducting motion analysis using IMU sensors to develop evidence-based therapeutic protocols for children with Duchenne Muscular Dystrophy (DMD), supervised by Prof.\ Behzadipour.}
+		\myItem{Leading the full pipeline: data collection, preprocessing, feature extraction, and movement classification using machine learning and deep learning models (MATLAB, Python).}
+		\myItem{Investigating movement biomarkers to support clinical decision-making in pediatric rehabilitation.}
+		\itemListEnd
+	}
+	
+	% -------------------- PROFESSIONAL EXPERIENCE --------------------
+	\sectionBlock{
+		\section{Professional Experience}
+	}{
+		\internHeading
+		{Back-End Developer}{Moj Gostaran Adak, Tehran}{Oct 2025 -- Dec 2025}
+		\itemListStart
+		\myItem{Developed a Java-based backend server integrated with the Traccar GPS tracking platform, enabling reliable real-time device communication and data handling.}
+		\myItem{Designed and implemented a customized Go backend for the company's internal frontend, supporting a locker-tracking system deployed in the Hamrah Aval project.}
+		\myItem{Built optimized RESTful APIs ensuring seamless interoperability between tracking services and client applications.}
+		\itemListEnd
+	}
+	
+	% -------------------- INTERNSHIPS --------------------
+	\sectionBlock{
+		\section{Internships}
+	}{
+		\internHeading
+		{Robotics Engineering}{Sina Robotics \& Medical Innovators Co., Tehran}{Jun -- Sep 2024}
+		\itemListStart
+		\myItem{Worked on surgical robotics with emphasis on kinematics; derived analytical solutions for master--slave robotic systems to improve precision and responsiveness (MATLAB, MSC ADAMS, TwinCAT~3).}
+		\myItem{Contributed to the design, simulation, and testing of robotic components, with focus on stability and haptic feedback in teleoperated surgical systems.}
+		\itemListEnd
+	}
+	
+	% -------------------- TEACHING ASSISTANT --------------------
+	\sectionBlock{
+		\section{Teaching Assistant}
+	}{
+		\internHeading
+		{Fundamental Automatic Control Design}{Sharif University of Technology}{Fall 2025}
+		\itemListStart
+		\myItem{Assisted in instruction of controller design, PID tuning methods, and stability analysis.}
+		\myItem{Managed grading of assignments, quizzes, and exams; held office hours for student guidance.}
+		\itemListEnd
+		
+		\internHeading
+		{Automatic Control}{Sharif University of Technology}{Spring 2025}
+		\itemListStart
+		\myItem{Supported lectures on control theory, feedback systems, and Lyapunov stability analysis.}
+		\myItem{Assisted with course assessment and provided academic mentoring to students.}
+		\itemListEnd
+	}
+	
+	% -------------------- AWARDS & HONORS --------------------
+	\sectionBlock{
+		\section{Awards and Honors}
+	}{
+		\awardListStart
+		\justifying
+		\item Ranked $85^{{th}}$ nationally in the National Master's Entrance Exam (Konkur), Mechanical Engineering. \hfill 2025
+		\item Qualified for direct admission to M.Sc.\ programs (``without exam'') due to academic excellence. \hfill 2025 \& 2026
+		\item Ranked $11^{{th}}$ (top 11\%) among 116 students in the Mechanical Engineering Department. \hfill Present
+		\item Ranked $187^{{th}}$ nationally in the National University Entrance Exam (Konkur), among $\sim$500{,}000 applicants. \hfill 2021
+		\awardListEnd
+	}
+	
+	% -------------------- COURSE PROJECTS --------------------
+	\sectionBlock{
+		\section{Course Projects}
+	}{
+		{\bf Robotics and Control}
+		
+		\projHeading
+		{\textbf{Robotics}}%
+		{Modeled and simulated a multi-DOF robotic manipulator in MATLAB/Simulink, studying forward/inverse kinematics and dynamic behavior.}%
+		{Fall 2024}
+		
+		\projHeading
+		{\textbf{Fundamental Automatic Control Design}}%
+		{Designed and tuned a PID controller for a ball-and-beam system; analyzed transient response and stability margins in MATLAB/Simulink.}%
+		{Fall 2024}
+		
+		\projHeading
+		{\textbf{Automatic Control}}%
+		{Designed a PID controller for a rotating governor; performed full system performance and stability analysis.}%
+		{Spring 2024}
+		
+		\projHeading
+		{\textbf{Dynamics of Machines}}%
+		{Simulated a pushing mechanism in MATLAB/Simulink to analyze forces, motion, and dynamic response.}%
+		{Spring 2024}
+		
+		\vspace{4pt}
+		{\bf Programming}
+		
+		\projHeading
+		{\textbf{Advanced Programming (Java)}}%
+		{Developed an online multiplayer game using object-oriented design, multithreading, and socket-based network programming.}%
+		{Spring 2025}
+		
+		\projHeading
+		{\textbf{Fundamentals of Programming (C)}}%
+		{Implemented a Twitter-like social media application with user management and file-based data persistence.}%
+		{Spring 2022}
+	}
+	
+	% -------------------- SKILLS --------------------
+	\sectionBlock{
+		\section{Skills}
+	}{
+		\skillListStart
+		\item \emph{Languages:} Persian (Native), English (Excellent).
+		
+		\item \emph{Programming:}
+		{\Courier \fontsize{10pt}{10pt}\selectfont
+			Java (advanced), C (advanced), Go (intermediate), C++ (intermediate), Python (intermediate), TwinCAT~3 (intermediate)}
+		
+		\item \emph{Simulation:}
+		{\Courier \fontsize{10pt}{10pt}\selectfont
+			MATLAB/Simulink (advanced), ROS (beginner), Gazebo (beginner)}
+		
+		\item \emph{CAD and Dynamics:}
+		{\Courier \fontsize{10pt}{10pt}\selectfont
+			SolidWorks, MSC ADAMS}
+		
+		\item \emph{Soft Skills:}
+		{\Courier \fontsize{10pt}{10pt}\selectfont
+			Clean coding, technical writing, public speaking, team leadership}
+		\skillListEnd
+	}
+	
+	% -------------------- SELECTED COURSES --------------------
+	\sectionBlock{
+		\section{Selected Courses}
+	}{
+		\begin{tabular}{p{6.8cm} p{6.8cm}}
+			\begin{itemize}[left=0pt, itemsep=1pt, topsep=0pt, parsep=0pt, partopsep=0pt]
+				\item Fundamentals of Programming (C)
+				\item Advanced Programming (Java)
+				\item Discrete Mathematics
+				\item Probability
+				\item Linear Algebra
+				\item Operating Systems
+			\end{itemize}
+			&
+			\begin{itemize}[left=0pt, itemsep=1pt, topsep=0pt, parsep=0pt, partopsep=0pt]
+				\item Dynamics of Machines
+				\item Robotics
+				\item Automatic Control
+				\item Fundamental Automatic Control Design
+				\item Data Transmission and Networks
+				\item Computer Simulation
+			\end{itemize}
+		\end{tabular}
+	}
+	
+	% -------------------- EXTRA-CURRICULAR ACTIVITIES --------------------
+	\sectionBlock{
+		\section{Extra-Curricular Activities}
+	}{
+		\skillListStart
+		\justifying
+		\item \emph{CARE Student Society:} Served as Media Director, managing media content, production, and team operations.
+		\item \emph{ICERS 2024:} Contributed to event organization and media coordination as a member of the IT and Media Team.
+		\item \emph{Dept.\ Website:} Developed and maintained the official website of the Mechanical Engineering Department (WordPress).
+		\skillListEnd
+	}
+	
+\end{document}

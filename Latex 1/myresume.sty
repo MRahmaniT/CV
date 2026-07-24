@@ -1,0 +1,204 @@
+%-------------------------------------
+% Resume style for LaTeX (XeLaTeX)
+% Author:  HF Yuan (base)
+% Edited:  Optimized spacing and visual style for Mohammad Rahmanitalab
+%------------------------------------
+
+\NeedsTeXFormat{LaTeX2e}
+
+% Page size – slightly tighter for more content
+\usepackage[
+top=1.1cm,
+bottom=1.9cm,
+left=1.6cm,
+right=1.7cm,
+marginparwidth=1.75cm
+]{geometry}
+
+% Packages
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+
+% ---------- Colors ----------
+\definecolor{cvblue}{HTML}{1F4E79}  % section titles / emphasis
+\definecolor{cvgray}{HTML}{555555}  % secondary text
+
+% ---------- Fonts ----------
+\usepackage{fontspec}
+\setmainfont{SabonLTStd}[
+Path=./Fonts/Sabon/,
+Extension = .ttf,
+UprightFont=*-Regular,
+BoldFont=*-Bold,
+ItalicFont=*-Italic,
+BoldItalicFont=*-BoldItalic,
+Ligatures=TeX
+]
+
+\newfontfamily\Calluna{Calluna}[
+Path=./Fonts/Calluna/,
+Extension = .otf,
+UprightFont=*-Regular,
+Ligatures=TeX
+]
+
+\newfontfamily\Courier{CourierNew}[
+Path=./Fonts/Courier/,
+Extension = .ttf,
+UprightFont=*-Regular
+]
+
+\newfontfamily\CronosLt{CronosProLT}[
+Path=./Fonts/Cronos/,
+Extension = .ttf,
+UprightFont=*-Regular,
+Ligatures=TeX
+]
+
+% ---------- Global spacing ----------
+% Slightly tighter line spacing to save space but keep readability
+\setstretch{1.05}
+
+% ---------- Emphasis style ----------
+\renewcommand{\emph}[1]{%
+	\textbf{\textcolor{cvblue}{\fontsize{11pt}{11pt}\selectfont #1}}%
+}
+
+% ---------- Section block layout ----------
+% Narrower label column and less vertical gap between sections
+\newcommand{\sectionBlock}[2]{%
+	\noindent
+	\begin{minipage}[t]{3cm} % Title column
+		\raggedright
+		#1
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[t]{13.9cm} % Content column
+		\raggedright
+		#2
+	\end{minipage}
+	\vspace{16pt} % was 25pt – more compact
+}
+
+% ---------- Section title style ----------
+\titleformat{\section}
+{\setstretch{1.0}%
+	\CronosLt\scshape\raggedright\color{cvblue}%
+	\fontsize{13pt}{13pt}\selectfont}
+{}{0em}{}
+[\vspace{1pt}{\color{cvblue}\rule{\linewidth}{0.5pt}}]
+
+% Slightly tighter spacing before/after sections
+\titlespacing{\section}{0pt}{4pt}{6pt}
+
+% ---------- List styles ----------
+
+% Publication list
+\newcommand{\pubListStart}{%
+	\begin{enumerate}[left=0pt, itemsep=3pt, topsep=2pt, parsep=0pt, partopsep=0pt]
+	}
+	\newcommand{\pubListEnd}{%
+	\end{enumerate}\vspace{-8pt}
+}
+
+% Award list
+\newcommand{\awardListStart}{%
+	\begin{itemize}[left=0pt, itemsep=1pt, topsep=2pt, parsep=0pt, partopsep=0pt]
+	}
+	\newcommand{\awardListEnd}{%
+	\end{itemize}\vspace{-8pt}
+}
+
+% Skill list – no bullet, very compact
+\newcommand{\skillListStart}{%
+	\begin{itemize}[leftmargin=0pt, label={}, itemsep=1pt, topsep=2pt, parsep=0pt, partopsep=0pt]
+	}
+	\newcommand{\skillListEnd}{%
+	\end{itemize}\vspace{-8pt}
+}
+
+% Generic item list (for bullet points under headings)
+\newcommand{\itemListStart}{%
+	\begin{itemize}[itemsep=1pt, topsep=2pt, parsep=0pt, partopsep=0pt]
+	}
+	\newcommand{\itemListEnd}{%
+	\end{itemize}
+}
+
+\newcommand{\myItem}[1]{%
+	\item {#1}
+}
+
+% ---------- Heading blocks ----------
+
+% Education information
+\newcommand{\eduHeadingFour}[4]{%
+	\renewcommand{\arraystretch}{1.1}%
+	\begin{tabular}[t]{p{13.9cm}}
+		\emph{#1}{\color{cvgray}$\mid$ #2} \hfill {\textit{#3}} \\
+		{\textit{#4}}
+	\end{tabular}\vspace{1pt}
+}
+
+\newcommand{\eduHeadingThree}[3]{%
+	\renewcommand{\arraystretch}{1.1}%
+	\begin{tabular}[t]{p{13.9cm}}
+		\emph{#1}{\color{cvgray}$\mid$ #2} \hfill {\textit{#3}} \\
+	\end{tabular}\vspace{1pt}
+}
+
+% Interests
+\newcommand{\interestHeading}[2]{%
+	\renewcommand{\arraystretch}{1.05}%
+	\begin{tabular}[t]{p{13.9cm}}
+		\emph{#1:} {#2} \\
+	\end{tabular}\vspace{1pt}
+}
+
+% Internship / experience information
+\newcommand{\internHeading}[3]{%
+	\renewcommand{\arraystretch}{1.1}%
+	\begin{tabular}[t]{p{13.9cm}}
+		\emph{#1} {\color{cvgray}$\mid$ #2} \hfill {\small #3} \\
+	\end{tabular}\vspace{1pt}
+}
+
+% Project information
+\newcommand{\projHeading}[3]{%
+	\renewcommand{\arraystretch}{1.05}%
+	\begin{tabular}[t]{p{13.9cm}}
+		\textbf{#1} \hfill {\small #3} \\
+		{{#2}} \\
+	\end{tabular}\vspace{1pt}
+}
+
+% Skills
+\newcommand{\skillsHeading}[2]{%
+	\renewcommand{\arraystretch}{}
+	\begin{tabular}[t]{p{13.9cm}}
+		\emph{#1:} {#2}
+	\end{tabular}\vspace{1pt}
+}
+
+% Courses
+\newcommand{\coursesHeading}[4]{%
+	\renewcommand{\arraystretch}{1.1}
+		\begin{tabular}[t]{p{6.7cm} p{6.7cm}}
+			\emph{#1:} & \emph{#3:} 
+			\\ 
+			{#2} & {#4}
+		\end{tabular}
+}
+
+% Activities
+\newcommand{\activitiesHeading}[2]{%
+	\renewcommand{\arraystretch}{1.05}%
+	\begin{tabular}[t]{p{13.9cm}}
+		\emph{#1:} {#2} \\
+	\end{tabular}\vspace{1pt}
+}
+
