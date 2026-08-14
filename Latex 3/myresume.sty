@@ -1,171 +1,214 @@
 %-------------------------------------
 % Resume style for LaTeX (XeLaTeX)
 % Author:  HF Yuan (base)
-% Edited:  Optimized spacing and visual style for Mohammad Rahmanitalab
-%------------------------------------
+% Redesign: stacked full-width academic CV layout
+%-------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{myresume}[2026/08/14 Stacked academic CV style]
 
-% Page size – slightly tighter for more content
+% ---------- Page geometry ----------
 \usepackage[
-top=1.1cm,
-bottom=1.9cm,
-left=1.6cm,
-right=1.7cm,
-marginparwidth=1.75cm
+  top=1.05cm,
+  bottom=1.45cm,
+  left=1.55cm,
+  right=1.55cm,
+  marginparwidth=1.5cm
 ]{geometry}
 
-% Packages
+% ---------- Packages ----------
 \usepackage{xcolor}
 \usepackage{setspace}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{tabularx}
 \usepackage{ragged2e}
+\usepackage{needspace}
+\usepackage{array}
+\usepackage{fontspec}
 
-% ---------- Colors ----------
-\definecolor{cvblue}{HTML}{1F4E79}  % section titles / emphasis
-\definecolor{cvgray}{HTML}{555555}  % secondary text
+% ---------- Colors (preserved) ----------
+\definecolor{cvblue}{HTML}{1F4E79}
+\definecolor{cvgray}{HTML}{555555}
+\definecolor{cvlight}{HTML}{EAF1F7}
 
 % ---------- Fonts ----------
-\usepackage{fontspec}
-\setmainfont{SabonLTStd}[
-Path=./Fonts/Sabon/,
-Extension = .ttf,
-UprightFont=*-Regular,
-BoldFont=*-Bold,
-ItalicFont=*-Italic,
-BoldItalicFont=*-BoldItalic,
-Ligatures=TeX
-]
+% Preserve the user's custom fonts when their original files are present.
+% The uploaded task package did not include Fonts/, so portable fallbacks are
+% defined for compilation and can be replaced automatically by the originals.
+\IfFileExists{./Fonts/Sabon/SabonLTStd-Regular.ttf}{%
+  \setmainfont{SabonLTStd}[
+    Path=./Fonts/Sabon/,
+    Extension=.ttf,
+    UprightFont=*-Regular,
+    BoldFont=*-Bold,
+    ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic,
+    Ligatures=TeX
+  ]
+}{%
+  \setmainfont{LibertinusSerif-Regular.otf}[
+    BoldFont=LibertinusSerif-Bold.otf,
+    ItalicFont=LibertinusSerif-Italic.otf,
+    BoldItalicFont=LibertinusSerif-BoldItalic.otf,
+    Ligatures=TeX
+  ]
+}
 
-\newfontfamily\Calluna{Calluna}[
-Path=./Fonts/Calluna/,
-Extension = .otf,
-UprightFont=*-Regular,
-Ligatures=TeX
-]
+\IfFileExists{./Fonts/Calluna/Calluna-Regular.otf}{%
+  \newfontfamily\Calluna{Calluna}[
+    Path=./Fonts/Calluna/,
+    Extension=.otf,
+    UprightFont=*-Regular,
+    Ligatures=TeX
+  ]
+}{%
+  \newfontfamily\Calluna{LibertinusSerif-Regular.otf}[
+    BoldFont=LibertinusSerif-Bold.otf,
+    ItalicFont=LibertinusSerif-Italic.otf,
+    Ligatures=TeX
+  ]
+}
 
-\newfontfamily\Courier{CourierNew}[
-Path=./Fonts/Courier/,
-Extension = .ttf,
-UprightFont=*-Regular
-]
+\IfFileExists{./Fonts/Courier/CourierNew-Regular.ttf}{%
+  \newfontfamily\Courier{CourierNew}[
+    Path=./Fonts/Courier/,
+    Extension=.ttf,
+    UprightFont=*-Regular
+  ]
+}{%
+  \newfontfamily\Courier{LibertinusMono-Regular.otf}
+}
 
-\newfontfamily\CronosLt{CronosProLT}[
-Path=./Fonts/Cronos/,
-Extension = .ttf,
-UprightFont=*-Regular,
-Ligatures=TeX
-]
+\IfFileExists{./Fonts/Cronos/CronosProLT-Regular.ttf}{%
+  \newfontfamily\CronosLt{CronosProLT}[
+    Path=./Fonts/Cronos/,
+    Extension=.ttf,
+    UprightFont=*-Regular,
+    Ligatures=TeX
+  ]
+}{%
+  \newfontfamily\CronosLt{LibertinusSans-Regular.otf}[
+    BoldFont=LibertinusSans-Bold.otf,
+    ItalicFont=LibertinusSans-Italic.otf,
+    Ligatures=TeX
+  ]
+}
 
-% ---------- Global spacing ----------
-% Slightly tighter line spacing to save space but keep readability
-\setstretch{1.05}
+% ---------- Global typography ----------
+\pagestyle{empty}
+\setstretch{1.025}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\emergencystretch=1.5em
 
 % ---------- Emphasis style ----------
 \renewcommand{\emph}[1]{%
-	\textbf{\textcolor{cvblue}{\fontsize{11pt}{11pt}\selectfont #1}}%
+  \textbf{\textcolor{cvblue}{\fontsize{10.4pt}{10.8pt}\selectfont #1}}%
 }
 
-% ---------- Section block layout ----------
-% Narrower label column and less vertical gap between sections
+% ---------- Full-width stacked section layout ----------
+% #1 = \section{Title}; #2 = content.  No side column / no fixed-width minipage.
+% Needspace keeps a heading with enough following material to avoid orphans.
 \newcommand{\sectionBlock}[2]{%
-	\noindent
-	\begin{minipage}[t]{2.4cm} % Title column
-		\raggedright
-		#1
-	\end{minipage}%
-	\hfill
-	\begin{minipage}[t]{13.9cm} % Content column
-		\raggedright
-		#2
-	\end{minipage}
-	\vspace{16pt} % was 25pt – more compact
+  \par\addvspace{5.8pt}%
+  \Needspace{4.2\baselineskip}%
+  #1%
+  \nobreak
+  #2%
+  \par\vspace{1.2pt}%
 }
 
 % ---------- Section title style ----------
-\titleformat{\section}
-{\setstretch{1.0}%
-	\CronosLt\scshape\raggedright\color{cvblue}%
-	\fontsize{13pt}{13pt}\selectfont}
-{}{0em}{}
-[\vspace{1pt}{\color{cvblue}\rule{\linewidth}{0.5pt}}]
-
-% Slightly tighter spacing before/after sections
-\titlespacing{\section}{0pt}{4pt}{6pt}
+\titleformat{\section}[block]
+  {\setstretch{1.0}\CronosLt\bfseries\raggedright\color{cvgray}%
+  \vspace{5pt}
+   \fontsize{15pt}{15pt}\selectfont}
+  {}{0em}{\scshape}
+  [\vspace{-10pt}{\color{cvgray}\rule{\linewidth}{0.8pt}}]
+\titlespacing*{\section}{0pt}{0.5pt}{2.2pt}
 
 % ---------- List styles ----------
-
-% Publication list
 \newcommand{\pubListStart}{%
-	\begin{enumerate}[left=0pt, itemsep=3pt, topsep=2pt, parsep=0pt, partopsep=0pt]
-	}
-	\newcommand{\pubListEnd}{%
-	\end{enumerate}\vspace{-8pt}
+  \begin{enumerate}[leftmargin=1.35em,itemsep=2pt,topsep=1pt,parsep=0pt,partopsep=0pt]
+}
+\newcommand{\pubListEnd}{%
+  \end{enumerate}\vspace{-2pt}
 }
 
-% Award list
 \newcommand{\awardListStart}{%
-	\begin{itemize}[left=0pt, itemsep=1pt, topsep=2pt, parsep=0pt, partopsep=0pt]
-	}
-	\newcommand{\awardListEnd}{%
-	\end{itemize}\vspace{-8pt}
+  \begin{itemize}[leftmargin=1.25em,itemsep=0.8pt,topsep=1pt,parsep=0pt,partopsep=0pt]
+}
+\newcommand{\awardListEnd}{%
+  \end{itemize}\vspace{-2pt}
 }
 
-% Skill list – no bullet, very compact
 \newcommand{\skillListStart}{%
-	\begin{itemize}[leftmargin=0pt, label={}, itemsep=1pt, topsep=2pt, parsep=0pt, partopsep=0pt]
-	}
-	\newcommand{\skillListEnd}{%
-	\end{itemize}\vspace{-8pt}
+  \begin{itemize}[leftmargin=0pt,label={},itemsep=0.8pt,topsep=1pt,parsep=0pt,partopsep=0pt]
+}
+\newcommand{\skillListEnd}{%
+  \end{itemize}\vspace{-2pt}
 }
 
-% Generic item list (for bullet points under headings)
 \newcommand{\itemListStart}{%
-	\begin{itemize}[itemsep=1pt, topsep=2pt, parsep=0pt, partopsep=0pt]
-	}
-	\newcommand{\itemListEnd}{%
-	\end{itemize}
+  \begin{itemize}[leftmargin=1.35em,itemsep=0.6pt,topsep=1.2pt,parsep=0pt,partopsep=0pt]
+}
+\newcommand{\itemListEnd}{%
+  \end{itemize}\vspace{-1.5pt}
 }
 
-\newcommand{\myItem}[1]{%
-	\item {#1\vspace{-1pt}}
-}
+\newcommand{\myItem}[1]{\item {#1}}
 
-% ---------- Heading blocks ----------
-
-% Education information
-
-
+% ---------- Heading blocks: all width-relative ----------
 \newcommand{\eduHeadingFour}[4]{%
-	\renewcommand{\arraystretch}{1.1}%
-	\begin{tabular}[t]{p{13.9cm}}
-		\emph{#1}{\color{cvgray}$\mid$ #2} \hfill {\textit{#3}} \\
-		{\textit{#4}}
-	\end{tabular}\vspace{1pt}
+  \begin{tabularx}{\linewidth}[t]{@{}>{\raggedright\arraybackslash}X>{\raggedleft\arraybackslash}p{3.15cm}@{}}
+    \emph{#1}{\color{cvgray}\,$\mid$\,#2} & \textit{#3} \\
+    \multicolumn{2}{@{}l@{}}{\textit{#4}}
+  \end{tabularx}\vspace{0.5pt}
 }
 
 \newcommand{\eduHeadingThree}[3]{%
-	\renewcommand{\arraystretch}{1.1}%
-	\begin{tabular}[t]{p{13.9cm}}
-		\emph{#1}{\color{cvgray}$\mid$ #2} \hfill {\textit{#3}} \\
-	\end{tabular}\vspace{1pt}
+  \begin{tabularx}{\linewidth}[t]{@{}>{\raggedright\arraybackslash}X>{\raggedleft\arraybackslash}p{3.15cm}@{}}
+    \emph{#1}{\color{cvgray}\,$\mid$\,#2} & \textit{#3}
+  \end{tabularx}\vspace{0.5pt}
 }
 
-% Internship / experience information
+\newcommand{\interestHeading}[2]{%
+  \noindent\emph{#1:} #2\par\vspace{0.5pt}
+}
+
 \newcommand{\internHeading}[3]{%
-	\renewcommand{\arraystretch}{1.1}%
-	\begin{tabular}[t]{p{13.9cm}}
-		\emph{#1} {\color{cvgray}$\mid$ #2} \hfill {\small #3} \\
-	\end{tabular}\vspace{-5pt}
+  \Needspace{3.2\baselineskip}%
+  \begin{tabularx}{\linewidth}[t]{@{}>{\raggedright\arraybackslash}X>{\raggedleft\arraybackslash}p{3.15cm}@{}}
+    \emph{#1} {\color{cvgray}\,$\mid$\,#2} & {\small #3}
+  \end{tabularx}\vspace{0.5pt}
 }
 
-% Project information
 \newcommand{\projHeading}[3]{%
-	\renewcommand{\arraystretch}{1.05}%
-	\begin{tabular}[t]{p{13.9cm}}
-		\textbf{#1} \hfill {\small #3} \\
-		{\textit{#2}} \\
-	\end{tabular}\vspace{1pt}
+  \Needspace{3.0\baselineskip}%
+  \begin{tabularx}{\linewidth}[t]{@{}>{\raggedright\arraybackslash}X>{\raggedleft\arraybackslash}p{3.15cm}@{}}
+    \textbf{#1} & {\small #3}
+  \end{tabularx}\par\vspace{-1.5pt}
+  {#2}\par\vspace{1.1pt}
 }
+
+\newcommand{\skillsHeading}[2]{%
+  \noindent\emph{#1:} #2\par\vspace{0.8pt}
+}
+
+\newcommand{\coursesHeading}[4]{%
+  \noindent
+  \begin{minipage}[t]{0.485\linewidth}
+    \emph{#1:}\par\vspace{-1pt}#2
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.485\linewidth}
+    \emph{#3:}\par\vspace{-1pt}#4
+  \end{minipage}
+}
+
+\newcommand{\activitiesHeading}[2]{%
+  \noindent\emph{#1:} #2\par\vspace{0.5pt}
+}
+
+\endinput

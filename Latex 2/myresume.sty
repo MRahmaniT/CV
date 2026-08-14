@@ -72,7 +72,7 @@ Ligatures=TeX
 % Narrower label column and less vertical gap between sections
 \newcommand{\sectionBlock}[2]{%
 	\noindent
-	\begin{minipage}[t]{2.4cm} % Title column
+	\begin{minipage}[t]{3cm} % Title column
 		\raggedright
 		#1
 	\end{minipage}%
@@ -130,18 +130,33 @@ Ligatures=TeX
 }
 
 \newcommand{\myItem}[1]{%
-	\item {#1\vspace{-1pt}}
+	\item {#1}
 }
 
 % ---------- Heading blocks ----------
 
 % Education information
-\newcommand{\eduHeading}[4]{%
+\newcommand{\eduHeadingFour}[4]{%
 	\renewcommand{\arraystretch}{1.1}%
 	\begin{tabular}[t]{p{13.9cm}}
-		\emph{#1} \hfill {\color{cvgray}#2} \\
-		{\textit{#3}} \hfill {\small #4} \\
-	\end{tabular}\vspace{-5pt}
+		\emph{#1}{\color{cvgray}$\mid$ #2} \hfill {\textit{#3}} \\
+		{\textit{#4}}
+	\end{tabular}\vspace{1pt}
+}
+
+\newcommand{\eduHeadingThree}[3]{%
+	\renewcommand{\arraystretch}{1.1}%
+	\begin{tabular}[t]{p{13.9cm}}
+		\emph{#1}{\color{cvgray}$\mid$ #2} \hfill {\textit{#3}} \\
+	\end{tabular}\vspace{1pt}
+}
+
+% Interests
+\newcommand{\interestHeading}[2]{%
+	\renewcommand{\arraystretch}{1.05}%
+	\begin{tabular}[t]{p{13.9cm}}
+		\emph{#1:} {#2} \\
+	\end{tabular}\vspace{1pt}
 }
 
 % Internship / experience information
@@ -149,7 +164,7 @@ Ligatures=TeX
 	\renewcommand{\arraystretch}{1.1}%
 	\begin{tabular}[t]{p{13.9cm}}
 		\emph{#1} {\color{cvgray}$\mid$ #2} \hfill {\small #3} \\
-	\end{tabular}\vspace{-5pt}
+	\end{tabular}\vspace{1pt}
 }
 
 % Project information
@@ -157,6 +172,33 @@ Ligatures=TeX
 	\renewcommand{\arraystretch}{1.05}%
 	\begin{tabular}[t]{p{13.9cm}}
 		\textbf{#1} \hfill {\small #3} \\
-		{\textit{#2}} \\
+		{{#2}} \\
 	\end{tabular}\vspace{1pt}
 }
+
+% Skills
+\newcommand{\skillsHeading}[2]{%
+	\renewcommand{\arraystretch}{}
+	\begin{tabular}[t]{p{13.9cm}}
+		\emph{#1:} {#2}
+	\end{tabular}\vspace{1pt}
+}
+
+% Courses
+\newcommand{\coursesHeading}[4]{%
+	\renewcommand{\arraystretch}{1.1}
+		\begin{tabular}[t]{p{6.7cm} p{6.7cm}}
+			\emph{#1:} & \emph{#3:} 
+			\\ 
+			{#2} & {#4}
+		\end{tabular}
+}
+
+% Activities
+\newcommand{\activitiesHeading}[2]{%
+	\renewcommand{\arraystretch}{1.05}%
+	\begin{tabular}[t]{p{13.9cm}}
+		\emph{#1:} {#2} \\
+	\end{tabular}\vspace{1pt}
+}
+
