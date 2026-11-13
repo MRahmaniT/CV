@@ -1,72 +1,55 @@
-%-------------------------------------
-% Resume in LaTeX (XeLaTeX)
-% Author: HF Yuan (template)
-% Edited for: Mohammad Rahmanitalab
-% Target: ISTA Scientific Internship / Machine Learning / Robotics
-% Compact version (minimal structural changes)
-%-------------------------------------
-
 \documentclass[a4paper,10pt]{article}
 
-\usepackage{myresume}  % Style package (includes geometry)
+\usepackage{myresume}
 \usepackage[hidelinks]{hyperref}
 \usepackage{fontawesome5}
 \usepackage{enumitem}
 \usepackage{xcolor}
 
-% Compact lists to help keep the CV within two pages.
 \setlist[itemize]{itemsep=0pt, topsep=1pt, parsep=0pt, partopsep=0pt}
 
 \renewcommand{\emph}[1]{%
 	\textbf{\textcolor{cvblue}{\fontsize{11pt}{11pt}\selectfont #1}}%
 }
 
-% --------------------  START  --------------------
 \begin{document}
 	
 	% -------------------- HEADER --------------------
 	\begin{center}
-		{\Calluna \fontsize{22pt}{22pt}\selectfont \textsc{Mohammad Rahmanitalab}}\\[2pt]
-		{\Calluna \small B.Sc. Mechanical Engineering, Sharif University of Technology}\\[1pt]
-		{\Calluna \small Minor in Computer Science, Sharif University of Technology}\\[4pt]
+		{\Calluna \fontsize{24pt}{26pt}\selectfont \textcolor{cvblue}{Mohammad Rahmanitalab}}\\[4pt]
+		{\normalsize B.Sc. Mechanical Engineering \enspace $\mid$ \enspace Minor in Computer Science \enspace $\mid$ \enspace Sharif University of Technology}\\[5pt]
 		{\small
-			\href{tel:+989390053773}{\faPhone\enspace (+98) 939-0053-773}
-			\enspace\textbar\enspace
-			\href{mailto:mrahmanitalab@gmail.com}{\faEnvelope\enspace mrahmanitalab@gmail.com}
-			\enspace\textbar\enspace
-			\faMapMarker\enspace Tehran, Iran
-			\\
-			\href{https://www.linkedin.com/in/mohammad-rahmanitalab-336a95250}{\faLinkedinIn\enspace Mohammad Rahmanitalab}
-			\enspace\textbar\enspace
-			\href{https://github.com/MRahmaniT}{\faGithub\enspace MRahmaniT}
+			\href{tel:+989390053773}{\textcolor{cvblue}{\faPhone}\enspace (+98) 939-0053-773}
+			\enspace $\mid$ \enspace
+			\href{mailto:mrahmanitalab@gmail.com}{\textcolor{cvblue}{\faEnvelope}\enspace mrahmanitalab@gmail.com}
+			\enspace $\mid$ \enspace
+			\textcolor{cvblue}{\faMapMarker}\enspace Tehran, Iran
+		}\\[2pt]
+		{\small
+			\href{https://www.linkedin.com/in/mohammad-rahmanitalab-336a95250}{\textcolor{cvblue}{\faLinkedinIn}\enspace LinkedIn}
+			\enspace $\mid$ \enspace
+			\href{https://github.com/MRahmaniT}{\textcolor{cvblue}{\faGithub}\enspace GitHub}
 		}
-		\noindent\rule{\textwidth}{0.4pt}
 	\end{center}
-	\vspace{2pt}
+	\vspace{-20pt}
 	
 	% -------------------- EDUCATION --------------------
 	\sectionBlock{
 		\section{Education}
 	}{
 		\eduHeadingFour
-		{B.Sc. Major in Mechanical Engineering, \href{https://www.sharif.edu}{SUT}}{Tehran, Iran}
-		{2021 -- 2026}{Advisor: Prof.\ Saeed Behzadipour}
+		{B.Sc. in Mechanical Engineering, \href{https://www.sharif.edu}{Sharif University of Technology}}{Tehran, Iran}
+		{2021 -- 2026}{Thesis Supervisor: Prof.\ Saeed Behzadipour}
 		\itemListStart
-		\myItem{GPA: 3.95/4.00 \ (18.93/20) --- Ranked \textbf{12\textsuperscript{th} out of 116} students in the department.}
+		\myItem{\textbf{B.Sc. Thesis:} Machine Learning-Based Motion Analysis for Duchenne Muscular Dystrophy Rehabilitation.}
+		\myItem{GPA: \textbf{3.95/4.00} (18.94/20) --- Ranked \textbf{12\textsuperscript{th} out of 116} students in the department.}
 		\itemListEnd
 		
 		\eduHeadingThree
-		{B.Sc. Minor in Computer Science, \href{https://www.sharif.edu}{SUT}}{Tehran, Iran}
+		{B.Sc. Minor in Computer Science, \href{https://www.sharif.edu}{Sharif University of Technology}}{Tehran, Iran}
 		{2022 -- 2026}
 		\itemListStart
-		\myItem{GPA: 4.00/4.00 \ (18.98/20)}
-		\itemListEnd
-		
-		\eduHeadingThree
-		{Diploma in Mathematics and Physics}{Tehran, Iran}
-		{2018 -- 2021}
-		\itemListStart
-		\myItem{GPA: 4.00/4.00 \ (19.88/20)}
+		\myItem{GPA: \textbf{4.00/4.00} (18.98/20).}
 		\itemListEnd
 	}
 	
@@ -76,38 +59,71 @@
 	}{
 		\awardListStart
 		\justifying
-		\item \emph{Machine Learning:} Time-series and sensor-data learning, supervised/deep learning, representation learning
-		\item \emph{Robotics \& Control:} Medical and rehabilitation robotics, haptics, teleoperation, robot motion and control
-		\item \emph{Biomedical Motion Analysis:} IMU-based sensing, biomechanics, movement classification and clinical applications
+		\item \emph{Machine Learning:} Time-series and sensor-data learning, supervised learning, representation learning
+		\item \emph{Biomedical AI \& Motion Analysis:} Wearable sensing, IMU-based human-motion analysis, biomechanics, movement classification and clinical applications
+		\item \emph{Robotics \& Control:} Medical and rehabilitation robotics, haptics, teleoperation, robot modeling and control
 		\awardListEnd
 	}
 	
-	% -------------------- UNDERGRADUATE RESEARCH --------------------
+	% -------------------- RESEARCH EXPERIENCE --------------------
 	\sectionBlock{
-		\section{Undergraduate Research}
+		\section{Research Experience}
 	}{
 		\internHeading
-		{Machin Learning Based Motion Analysis}{Sharif University of Technology}{2024 -- 2026}
+		{Machine Learning-Based Motion Analysis}
+		{Sharif University of Technology}{2024 -- 2026}
 		\itemListStart
-		\myItem{Conducting motion analysis using IMU sensors to develop evidence-based therapeutic protocols for children with Duchenne Muscular Dystrophy (DMD), supervised by Prof.\ Behzadipour.}
-		\myItem{Leading the full pipeline: data collection, preprocessing, feature extraction, and movement classification using machine learning models (MATLAB, Python).}
-		\myItem{Investigating movement biomarkers to support clinical decision-making in pediatric rehabilitation.}
+		\myItem{Led an end-to-end IMU-based human-motion analysis project for Duchenne muscular dystrophy (DMD) rehabilitation, covering data collection, preprocessing, feature extraction, and supervised movement classification.}
+		\myItem{Developed the analysis pipeline in Python and MATLAB, including signal preprocessing, feature extraction, supervised classification, and analysis of activity-specific motion patterns relevant to quantitative rehabilitation assessment.}
+		\myItem{Conducted the research under the supervision of Prof.\ Saeed Behzadipour and prepared the study for dissemination as an ICBME manuscript.}
 		\itemListEnd
 	}
-
+	
 	
 	% -------------------- PUBLICATIONS --------------------
 	\sectionBlock{
-		\section{Publications}
+		\section{Publications \& Presentations}
 	}{
 		\internHeading
-		{An Activity-Specific Machine Learning Framework for Classifying Simulated NSAA Performance Levels Using Wearable IMUs}
-		{ICBME}{2026}
+		{Accepted Conference Poster}
+		{ICBME 2026}{Nov 2026}
 		\itemListStart
-		\myItem{M. Rahmanitalab, et al. Manuscript in preparation for submission to ICBME.}
+		\myItem{
+			\textbf{M. Rahmanitalab},
+			Z. Razaghi, S. Behzadipour, and M. Babaee.
+			``An Activity-Specific Machine Learning Framework
+			for Classifying Simulated NSAA Performance
+			Levels Using Wearable IMUs.''
+			\textit{33rd National \& 11th International
+				Iranian Conference on Biomedical Engineering
+				(ICBME 2026)}, Isfahan, Iran.
+			Accepted for poster presentation,
+			November 18--19, 2026.
+		}
 		\itemListEnd
 	}
 	
+	
+	% -------------------- TECHNICAL SKILLS --------------------
+	\sectionBlock{
+		\section{Technical Skills}
+	}{
+		\skillsHeading
+		{Programming}{Python, Java, C, Go}
+		\skillsHeading
+		{Development}{Git, Linux}
+		\skillsHeading
+		{Machine Learning \& Data Analysis}
+		{NumPy, pandas, SciPy, scikit-learn; feature engineering, supervised classification}
+		\skillsHeading
+		{Scientific Computing}{MATLAB, Simulink}
+		\skillsHeading
+		{Robotics \& Control}{ROS 2, Gazebo, TwinCAT 3, MSC ADAMS; kinematics, system modeling, PID control}
+		\skillsHeading
+		{CAD}{SolidWorks}
+		\skillsHeading
+		{Languages}{Persian (Native), English (Professional working proficiency)}
+	}
 	
 	% -------------------- PROFESSIONAL EXPERIENCE --------------------
 	\sectionBlock{
@@ -116,153 +132,114 @@
 		\internHeading
 		{Back-End Developer}{Moj Gostaran Adak, Tehran}{Oct -- Dec 2025}
 		\itemListStart
-		\myItem{Developed a Java backend integrated with the Traccar GPS platform for reliable real-time device communication and data handling.}
-		\myItem{Implemented a customized Go backend and RESTful APIs for the company's internal frontend and locker-tracking system deployed in the Hamrah Aval project.}
+		\myItem{Developed Java backend services integrated with the Traccar GPS platform for real-time device communication and data handling.}
+		\myItem{Implemented Go backend services and RESTful APIs for an internal locker-tracking platform deployed in the Hamrah Aval project.}
 		\itemListEnd
 	}
 	
-	% -------------------- INTERNSHIPS --------------------
+	% -------------------- ROBOTICS EXPERIENCE --------------------
 	\sectionBlock{
 		\section{Internships}
 	}{
 		\internHeading
-		{Robotics Engineering}{Sina Robotics \& Medical Innovators Co., Tehran}{Jun -- Sep 2024}
+		{Robotics Engineering Intern}{Sina Robotics \& Medical Innovators Co., Tehran}{Jun -- Sep 2024}
 		\itemListStart
-		\myItem{Worked on surgical robotics, deriving kinematic solutions and simulating master--slave robotic components with emphasis on haptic teleoperation (MATLAB, MSC ADAMS, TwinCAT\~3).}
+		\myItem{Derived kinematic solutions and simulated components of master--slave surgical robotic systems using MATLAB and MSC ADAMS.}
+		\myItem{Worked on haptic teleoperation and real-time robotic-system development using TwinCAT 3, with emphasis on precision and responsiveness.}
 		\itemListEnd
 	}
 	
-	% -------------------- TEACHING ASSISTANT --------------------
+	% -------------------- SELECTED PROJECTS --------------------
 	\sectionBlock{
-		\section{Teaching Assistant}
+		\section{Selected Technical Projects}
 	}{
-		\internHeading
-		{Fundamentals of Automatic Control Design}{Sharif University of Technology}{Fall 2025}
-		\itemListStart
-		\myItem{Supported instruction, assessment, and student guidance in controller design, PID tuning, and stability analysis.}
-		\itemListEnd
-		
-		\internHeading
-		{Automatic Control}{Sharif University of Technology}{Spring 2025}
-		\itemListStart
-		\myItem{Supported instruction, assessment, and student guidance in control theory, feedback systems, and Lyapunov stability analysis.}
-		\itemListEnd
-	}
-	
-	% -------------------- PROJECTS --------------------
-	\sectionBlock{
-		\section{Technical Projects}
-	}{
-		{\emph {Programming}}
+		{\emph{Programming}}
 		
 		\projHeading
-		{\textbf{Advanced Programming (Java)}}%
-		{Developed an online multiplayer game using object-oriented design, multithreading, and socket-based network programming.}%
+		{\textbf{Networked Multiplayer Java Application}}%
+		{Developed an online multiplayer application using object-oriented design, multithreading, socket-based network programming, and client--server architecture.}%
 		{Spring 2025}
-		
-		\projHeading
-		{\textbf{Fundamentals of Programming (C)}}%
-		{Implemented a Twitter-like social media application with user management and file-based data persistence.}%
-		{Spring 2022}
 		
 		\vspace{4pt}
 		
 		\emph{Robotics and Control}
 		
 		\projHeading
-		{\textbf{Robotics}}%
+		{\textbf{Multi-DOF Robotic Manipulator Modeling \& Simulation}}%
 		{Modeled and simulated a multi-DOF robotic manipulator in MATLAB/Simulink, studying forward/inverse kinematics and dynamic behavior.}%
 		{Fall 2024}
 		
 		\projHeading
-		{\textbf{Fundamental Automatic Control Design}}%
-		{Designed and tuned a PID controller for a ball-and-beam system; analyzed transient response and stability margins in MATLAB/Simulink.}%
-		{Fall 2024}
-		
-		\projHeading
-		{\textbf{Automatic Control}}%
-		{Designed a PID controller for a rotating governor; performed full system performance and stability analysis.}%
-		{Spring 2024}
-		
-		\projHeading
-		{\textbf{Dynamics of Machines}}%
-		{Simulated a pushing mechanism in MATLAB/Simulink to analyze forces, motion, and dynamic response.}%
-		{Spring 2024}
-		
-		
+		{\textbf{Control \& Dynamic Systems Projects}}%
+		{Designed and analyzed PID-controlled and dynamic systems including ball-and-beam and rotating-governor systems, and simulated a pushing mechanism in MATLAB/Simulink.}%
+		{2024}
 	}
 	
-	% -------------------- SKILLS --------------------
+	% -------------------- TEACHING EXPERIENCE --------------------
 	\sectionBlock{
-		\section{Skills}
-	}{
-		\skillsHeading
-		{Programming}{Python, C, Java, Go, TwinCAT\~3}
-		\skillsHeading
-		{Simulation Tools}{MATLAB (Simulink), ROS2, Gazebo}
-		\skillsHeading
-		{Machine Learning}{Time-series preprocessing, feature extraction, supervised classification}
-		\skillsHeading
-		{Robotics \& Control}{System modeling, PID control, simulation, sensor data processing}
-		\skillsHeading
-		{CAD}{SolidWorks, MSC ADAMS}
-		\skillsHeading
-		{Languages}{Persian (Native), English (Excellent)}
-	}
-	
-	% -------------------- AWARDS & HONORS --------------------
-	\sectionBlock{
-		\section{Awards}
+		\section{Teaching Assistant Experience}
 	}{
 		\internHeading
-		{High School}{Tehran, Iran}{}
+		{Fundamentals of Automatic Control Design}
+		{Sharif University of Technology}{Fall 2025}
 		\itemListStart
-		\myItem{Ranked $187^{th}$ in the National University Entrance Exam (Konkur).} 
-		\hfill 2021
+		\myItem{Supported undergraduate instruction, assessment, and student guidance in controller design, PID tuning, and stability analysis.}
 		\itemListEnd
 		
 		\internHeading
-		{Undergraduate}{Sharif University of Technology}{}
+		{Automatic Control}
+		{Sharif University of Technology}{Spring 2025}
 		\itemListStart
-		\myItem{Ranked $85^{th}$ in the National Master’s Entrance Exam (Konkur).} 
-		\hfill 2025
-		\myItem{Qualified for direct admission to M.Sc. due to academic excellence.} 
-		\hfill 2025 \& 2026
+		\myItem{Supported undergraduate instruction, assessment, and student guidance in control theory, feedback systems, and Lyapunov stability analysis.}
 		\itemListEnd
 	}
 	
-	% -------------------- COURSES (COMPACT) --------------------
+	% -------------------- ACADEMIC HONORS --------------------
 	\sectionBlock{
-		\section{Selected Courses}
+		\section{Academic Honors \& Distinctions}
+	}{
+		\internHeading
+		{National Master's Entrance Examination}{Iran}{2025}
+		\itemListStart
+		\myItem{Ranked \textbf{85\textsuperscript{th}} nationally in Iran's Master's Entrance Examination.}
+		\itemListEnd
+		
+		\internHeading
+		{Direct M.Sc. Admission}{Sharif University of Technology}{2025 \& 2026}
+		\itemListStart
+		\myItem{Qualified for direct M.Sc. admission based on academic excellence.}
+		\itemListEnd
+	}
+	
+	% -------------------- SELECTED COURSEWORK --------------------
+	\sectionBlock{
+		\section{Selected Coursework}
 	}{
 		\coursesHeading
-		{Mechanical Engineering}{
+		{Robotics \& Control}{
 			\itemListStart
 			\myItem{Robotics}
-			\myItem{Dynamics of Machinery}
-			\myItem{Mechanisms Design}
 			\myItem{Automatic Control}
-			\myItem{Fund of Automatic Control Design}
-			\myItem{Measurement and Control Systems}
-			\myItem{Electrical Eng.\ I--II}
+			\myItem{Fundamentals of Automatic Control Design}
+			\myItem{Measurement \& Control Systems}
+			\myItem{Dynamics of Machinery}
 			\itemListEnd
 		}
-		{Computer Science}{
+		{Computer Science \& Mathematics}{
 			\itemListStart
 			\myItem{Advanced Programming}
-			\myItem{Dtra Transmission \& Networks}
-			\myItem{Computer Simulation}
 			\myItem{Operating Systems}
+			\myItem{Data Transmission \& Networks}
 			\myItem{Linear Algebra}
 			\myItem{Probability}
-			\myItem{Discrete Mathematics}
+			\myItem{Computer Simulation}
 			\itemListEnd
 		}
 	}
 	
-	% -------------------- ACTIVITIES & SERVICE --------------------
+	% -------------------- LEADERSHIP & SERVICE --------------------
 	\sectionBlock{
-		\section{Extra-Curricular Activities}
+		\section{Leadership \& Service}
 	}{
 		\skillListStart
 		\justifying
